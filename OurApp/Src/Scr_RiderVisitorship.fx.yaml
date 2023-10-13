@@ -1,0 +1,189 @@
+Scr_RiderVisitorship As screen:
+    Fill: =RGBA(251, 235, 206, 1)
+
+    Rectangle2_4 As rectangle:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =126
+        Width: =640
+        Y: =1010
+        ZIndex: =1
+
+    Button5_2 As button:
+        BorderThickness: =0
+        Fill: =RGBA(251, 235, 206, 1)
+        Height: =136
+        HoverFill: =
+        Size: =24
+        Text: =""
+        Width: =101
+        X: =427
+        Y: =1000
+        ZIndex: =2
+
+    "'btn_New ride' As button":
+        Fill: =RGBA(0, 52, 0, 1)
+        Font: =Font.Georgia
+        Height: =146
+        OnSelect: =Navigate(Scr_AddNewRide,ScreenTransition.Fade)
+        Size: =24
+        Text: ="New Ride"
+        Width: =427
+        X: =106
+        Y: =402
+        ZIndex: =3
+
+    "'appname_Rider visitorship' As label":
+        Align: =Align.Center
+        Color: =RGBA(251, 235, 206, 1)
+        Fill: =RGBA(0, 52, 0, 1)
+        Font: =Font.Georgia
+        Height: =110
+        Size: =35
+        Text: ="Rider Visitorship"
+        Width: =640
+        ZIndex: =4
+
+    "'btn_Current rides' As button":
+        Fill: =RGBA(0, 52, 0, 1)
+        Font: =Font.Georgia
+        Height: =148
+        OnSelect: =Navigate(Scr_CurrentRides,ScreenTransition.Fade)
+        Size: =24
+        Text: ="Current Rides"
+        Width: =427
+        X: =106
+        Y: =577
+        ZIndex: =5
+
+    btn_addnewride_cancel_22 As icon.Cancel:
+        AccessibleLabel: =Self.Tooltip
+        Height: =88
+        Icon: =Icon.BackArrow
+        OnSelect: =Back()
+        PaddingBottom: =22
+        PaddingLeft: =22
+        PaddingRight: =22
+        PaddingTop: =22
+        TabIndex: =0
+        Tooltip: ="Cancel item"
+        Width: =77
+        X: =16
+        Y: =11
+        ZIndex: =6
+
+    Icon1_30 As icon.Home:
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =56
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Scr_Dashboard,ScreenTransition.Fade)
+        Width: =79
+        X: =16
+        Y: =1028
+        ZIndex: =7
+
+    Image1_28 As image:
+        Height: =52
+        Image: ='lost-and-found'
+        OnSelect: =Navigate('Scr_Lost&FoundGallery')
+        Width: =68
+        X: =117
+        Y: =1032
+        ZIndex: =8
+
+    Image2_25 As image:
+        Height: =52
+        Image: ='first-aid-kit'
+        OnSelect: =Navigate(Scr_Inventory)
+        Width: =68
+        X: =219
+        Y: =1032
+        ZIndex: =9
+
+    Image3_27 As image:
+        Height: =77
+        Image: =boat
+        OnSelect: =Navigate(Scr_RiderVisitorship)
+        Width: =82
+        X: =438
+        Y: =1022
+        ZIndex: =10
+
+    Image4_25 As image:
+        Height: =60
+        Image: =question
+        OnSelect: =Navigate(Scr_FAQ)
+        Width: =85
+        X: =539
+        Y: =1028
+        ZIndex: =11
+
+    Image5_29 As image:
+        Height: =63
+        Image: =human
+        OnSelect: =Navigate(Scr_StaffLookupGallery)
+        Width: =86
+        X: =319
+        Y: =1021
+        ZIndex: =12
+
+    Label1_146 As label:
+        Font: =Font.Georgia
+        Size: =12
+        Text: ="Home"
+        Width: =59
+        X: =26
+        Y: =1084
+        ZIndex: =13
+
+    Label1_147 As label:
+        Font: =Font.Georgia
+        Size: =12
+        Text: ="Lost & Found"
+        Width: =62
+        X: =120
+        Y: =1088
+        ZIndex: =14
+
+    Label1_148 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Size: =12
+        Text: ="First-Aid & AED"
+        Width: =78
+        X: =214
+        Y: =1088
+        ZIndex: =15
+
+    Label1_149 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =52
+        Size: =12
+        Text: ="Part-time Management"
+        Width: =115
+        X: =304
+        Y: =1084
+        ZIndex: =16
+
+    Label1_150 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =52
+        Size: =12
+        Text: ="Ride Visitors"
+        Width: =99
+        X: =429
+        Y: =1082
+        ZIndex: =17
+
+    Label1_151 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =48
+        Size: =12
+        Text: ="FAQs"
+        Width: =71
+        X: =546
+        Y: =1084
+        ZIndex: =18
+

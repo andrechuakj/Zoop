@@ -1,0 +1,228 @@
+Scr_AreYouSure As screen:
+    Fill: =RGBA(251, 235, 206, 1)
+
+    Label4_5 As label:
+        Align: =Align.Center
+        Color: =RGBA(251, 235, 206, 1)
+        Fill: =RGBA(0, 52, 0, 1)
+        Font: =Font.Georgia
+        Height: =110
+        Size: =35
+        Text: ="Lost Items"
+        Width: =640
+        Y: =4
+        ZIndex: =1
+
+    Rectangle1_1 As rectangle:
+        Fill: =RGBA(0, 52, 0, 1)
+        Height: =382
+        Width: =588
+        X: =26
+        Y: =371
+        ZIndex: =2
+
+    Label6 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        FontWeight: =FontWeight.Semibold
+        Height: =149
+        Size: =40
+        Text: ="Are you sure?"
+        Width: =454
+        X: =101
+        Y: =412
+        ZIndex: =3
+
+    Rectangle3 As rectangle:
+        BorderColor: =RGBA(26, 26, 26, 1)
+        BorderThickness: =2
+        Fill: =RGBA(255, 255, 255, 1)
+        Width: =184
+        X: =88
+        Y: =594
+        ZIndex: =4
+
+    Rectangle3_1 As rectangle:
+        BorderColor: =RGBA(26, 26, 26, 1)
+        BorderThickness: =2
+        Fill: =RGBA(255, 255, 255, 1)
+        OnSelect: =Back()
+        Width: =184
+        X: =371
+        Y: =594
+        ZIndex: =5
+
+    Icon2_3 As icon.Check:
+        Color: =RGBA(54, 176, 75, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Check
+        X: =194
+        Y: =612
+        ZIndex: =6
+
+    Icon1_6 As icon.Cancel:
+        Color: =RGBA(255, 0, 0, 1)
+        Icon: =Icon.Cancel
+        X: =478
+        Y: =615
+        ZIndex: =7
+
+    no As label:
+        Height: =93
+        OnSelect: =Back()
+        Size: =30
+        Text: ="Back"
+        Width: =171
+        X: =384
+        Y: =601
+        ZIndex: =8
+
+    yes As label:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Height: =86
+        OnSelect: |+
+            =Navigate(Scr_ItemMatch,ScreenTransition.Fade);
+            Patch('Lost List', currItem, { foundEmail: true });
+            
+        Size: =30
+        Text: ="Yes"
+        Width: =164
+        X: =108
+        Y: =601
+        ZIndex: =9
+
+    Rectangle2_24 As rectangle:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =126
+        Width: =640
+        Y: =1010
+        ZIndex: =10
+
+    Icon1_26 As icon.Home:
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =56
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Scr_Dashboard,ScreenTransition.Fade)
+        Width: =79
+        X: =16
+        Y: =1028
+        ZIndex: =11
+
+    Button5_11 As button:
+        BorderThickness: =0
+        Fill: =RGBA(251, 235, 206, 1)
+        Height: =136
+        HoverFill: =
+        Size: =24
+        Text: =""
+        Width: =112
+        X: =95
+        Y: =1000
+        ZIndex: =12
+
+    Image1_24 As image:
+        Height: =52
+        Image: ='lost-and-found'
+        OnSelect: =Navigate('Scr_Lost&FoundGallery')
+        Width: =68
+        X: =117
+        Y: =1032
+        ZIndex: =13
+
+    Image2_21 As image:
+        Height: =52
+        Image: ='first-aid-kit'
+        OnSelect: =Navigate(Scr_Inventory)
+        Width: =68
+        X: =219
+        Y: =1032
+        ZIndex: =14
+
+    Image3_23 As image:
+        Height: =77
+        Image: =boat
+        OnSelect: =Navigate(Scr_RiderVisitorship)
+        Width: =82
+        X: =438
+        Y: =1022
+        ZIndex: =15
+
+    Image4_21 As image:
+        Height: =60
+        Image: =question
+        OnSelect: =Navigate(Scr_FAQ)
+        Width: =85
+        X: =539
+        Y: =1028
+        ZIndex: =16
+
+    Label1_128 As label:
+        Font: =Font.Georgia
+        Size: =12
+        Text: ="Home"
+        Width: =59
+        X: =26
+        Y: =1084
+        ZIndex: =18
+
+    Label1_129 As label:
+        Font: =Font.Georgia
+        Size: =12
+        Text: ="Lost & Found"
+        Width: =62
+        X: =120
+        Y: =1088
+        ZIndex: =19
+
+    Label1_130 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Size: =12
+        Text: ="First-Aid & AED"
+        Width: =78
+        X: =214
+        Y: =1088
+        ZIndex: =20
+
+    Label1_131 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =52
+        Size: =12
+        Text: ="Part-time Management"
+        Width: =115
+        X: =304
+        Y: =1084
+        ZIndex: =21
+
+    Label1_132 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =52
+        Size: =12
+        Text: ="Ride Visitors"
+        Width: =99
+        X: =429
+        Y: =1082
+        ZIndex: =22
+
+    Label1_133 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =48
+        Size: =12
+        Text: ="FAQs"
+        Width: =71
+        X: =546
+        Y: =1084
+        ZIndex: =23
+
+    Image5_50 As image:
+        Height: =63
+        Image: =human
+        OnSelect: =Navigate(Scr_StaffLookupGallery)
+        Width: =86
+        X: =319
+        Y: =1021
+        ZIndex: =24
+

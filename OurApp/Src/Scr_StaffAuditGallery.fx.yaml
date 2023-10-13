@@ -1,0 +1,291 @@
+Scr_StaffAuditGallery As screen:
+    Fill: =RGBA(251, 235, 206, 1)
+
+    Rectangle2_10 As rectangle:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =126
+        Width: =640
+        Y: =1010
+        ZIndex: =1
+
+    Icon1_15 As icon.Home:
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =56
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Scr_Dashboard,ScreenTransition.Fade)
+        Width: =79
+        X: =16
+        Y: =1028
+        ZIndex: =2
+
+    Image1_13 As image:
+        Height: =52
+        Image: ='lost-and-found'
+        OnSelect: =Navigate('Scr_Lost&FoundGallery')
+        Width: =68
+        X: =117
+        Y: =1032
+        ZIndex: =3
+
+    Image2_10 As image:
+        Height: =52
+        Image: ='first-aid-kit'
+        OnSelect: =Navigate(Scr_Inventory)
+        Width: =68
+        X: =219
+        Y: =1032
+        ZIndex: =4
+
+    Image3_12 As image:
+        Height: =77
+        Image: =boat
+        OnSelect: =Navigate(Scr_RiderVisitorship)
+        Width: =82
+        X: =438
+        Y: =1022
+        ZIndex: =5
+
+    Image4_10 As image:
+        Height: =60
+        Image: =question
+        OnSelect: =Navigate(Scr_FAQ)
+        Width: =85
+        X: =539
+        Y: =1028
+        ZIndex: =6
+
+    Label1_62 As label:
+        Font: =Font.Georgia
+        Size: =12
+        Text: ="Home"
+        Width: =59
+        X: =26
+        Y: =1084
+        ZIndex: =7
+
+    Label1_63 As label:
+        Font: =Font.Georgia
+        Size: =12
+        Text: ="Lost & Found"
+        Width: =62
+        X: =120
+        Y: =1088
+        ZIndex: =8
+
+    Label1_64 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Size: =12
+        Text: ="First-Aid & AED"
+        Width: =78
+        X: =214
+        Y: =1088
+        ZIndex: =9
+
+    Label1_66 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =52
+        Size: =12
+        Text: ="Ride Visitors"
+        Width: =99
+        X: =429
+        Y: =1082
+        ZIndex: =10
+
+    Label1_67 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =48
+        Size: =12
+        Text: ="FAQs"
+        Width: =71
+        X: =546
+        Y: =1084
+        ZIndex: =11
+
+    Button5_27 As button:
+        BorderThickness: =0
+        Fill: =RGBA(251, 235, 206, 1)
+        Height: =136
+        HoverFill: =
+        Size: =24
+        Text: =""
+        Width: =112
+        X: =304
+        Y: =1000
+        ZIndex: =12
+
+    Label1_65 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =52
+        Size: =12
+        Text: ="Part-time Management"
+        Width: =115
+        X: =304
+        Y: =1084
+        ZIndex: =13
+
+    "StaffGallery As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver4.0'":
+        BorderColor: =RGBA(0, 52, 0, 1)
+        DelayItemLoading: =true
+        Height: =691
+        Items: |-
+            =//Search('Staff Audit', StaffSearchInput.Text, "Staff Name")
+            Search('Staff Audit',StaffSearchInput.Text, "StaffName")
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplatePadding: =0
+        TemplateSize: =Min(168, Self.Height - 60)
+        Y: =214
+        ZIndex: =15
+
+        Title4 As label:
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: |-
+                ="Name: " & ThisItem.'Staff Name'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =32
+            Y: =16
+            ZIndex: =1
+
+        Subtitle4 As label:
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: |-
+                ="Position: " & ThisItem.'Staff Position'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =32
+            Y: =Title4.Y + Title4.Height + 2
+            ZIndex: =2
+
+        Body2 As label:
+            Height: =Self.Size * 4
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Text: |-
+                ="Last Audit: " & ThisItem.Date
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - 104
+            X: =32
+            Y: =Subtitle4.Y + Subtitle4.Height + 4
+            ZIndex: =3
+
+        NextArrow4 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Color: =RGBA(0, 52, 0, 1)
+            Height: =60
+            Icon: =Icon.ChevronRight
+            OnSelect: |-
+                =Navigate(Scr_StaffDetails_Audit,ScreenTransition.Fade, {SelectedItem: ThisItem.ID})
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="View item details"
+            Width: =60
+            X: =Parent.TemplateWidth - Self.Width - 5
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =4
+
+        Separator4_1 As rectangle:
+            BorderColor: =RGBA(0, 52, 0, 1)
+            Fill: =RGBA(0, 52, 0, 1)
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =5
+
+    Button1 As button:
+        Fill: =RGBA(0, 52, 0, 1)
+        Font: =Font.Georgia
+        Height: =77
+        HoverFill: =ColorFade(RGBA(0, 52, 0, 1), -20%)
+        OnSelect: =Navigate(Scr_StaffAuditForm,ScreenTransition.Fade)
+        Size: =25
+        Text: ="Start New Audit"
+        Width: =360
+        X: =143
+        Y: =914
+        ZIndex: =18
+
+    Group1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =19
+
+        Icon5 As icon.Search:
+            Color: =RGBA(0, 52, 0, 1)
+            Icon: =Icon.Search
+            Width: =62
+            X: =29
+            Y: =134
+            ZIndex: =16
+
+        StaffSearchInput As text:
+            BorderColor: =RGBA(0, 52, 0, 1)
+            Default: =""
+            Fill: =RGBA(251, 235, 206, 1)
+            Height: =64
+            HoverBorderColor: =RGBA(0, 52, 0, 1)
+            HoverFill: =RGBA(255, 255, 255, 0.7)
+            Width: =527
+            X: =90
+            Y: =134
+            ZIndex: =17
+
+    "'appname_Rider visitorship_1' As label":
+        Align: =Align.Center
+        Color: =RGBA(251, 235, 206, 1)
+        Fill: =RGBA(0, 52, 0, 1)
+        Font: =Font.Georgia
+        Height: =110
+        Size: =35
+        Text: ="Service Audit"
+        Width: =640
+        ZIndex: =20
+
+    btn_addnewride_cancel_27 As icon.Cancel:
+        AccessibleLabel: =Self.Tooltip
+        Height: =88
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate(Scr_StaffLookupGallery, ScreenTransition.Fade)
+        PaddingBottom: =22
+        PaddingLeft: =22
+        PaddingRight: =22
+        PaddingTop: =22
+        TabIndex: =0
+        Tooltip: ="Cancel item"
+        Width: =77
+        X: =11
+        Y: =11
+        ZIndex: =21
+
+    Image5_52 As image:
+        Height: =63
+        Image: =human
+        OnSelect: =Navigate(Scr_StaffLookupGallery)
+        Width: =86
+        X: =319
+        Y: =1021
+        ZIndex: =22
+

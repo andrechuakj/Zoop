@@ -1,0 +1,22 @@
+Scr_LoginScreen As screen:
+
+    Image6_1 As image:
+        Height: =1136
+        Image: =Login
+        ImagePosition: =ImagePosition.Fill
+        Width: =640
+        ZIndex: =3
+
+    btn_Login_2 As button:
+        Fill: =RGBA(0, 52, 0, 1)
+        Font: =Font.Georgia
+        Height: =67
+        HoverFill: =ColorFade(RGBA(0, 52, 0, 1), -20%)
+        OnSelect: =Navigate(Scr_Dashboard,ScreenTransition.Fade)
+        Size: =24
+        Text: ="Login"
+        Width: =254
+        X: =193
+        Y: =651
+        ZIndex: =4
+

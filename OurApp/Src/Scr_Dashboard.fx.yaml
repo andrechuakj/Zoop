@@ -1,0 +1,140 @@
+Scr_Dashboard As screen:
+    Fill: =RGBA(251, 235, 206, 1)
+
+    Image8 As image:
+        Height: =1136
+        Image: ='Mandai Zoo App (7)'
+        ImagePosition: =ImagePosition.Fill
+        Width: =640
+        ZIndex: =1
+
+    "'btn_Lost&Found' As button":
+        Color: =RGBA(251, 235, 206, 1)
+        Fill: =RGBA(0, 52, 0, 1)
+        Font: =Font.Georgia
+        Height: =136
+        HoverFill: =ColorFade(RGBA(0, 52, 0, 1), -20%)
+        OnSelect: =Navigate('Scr_Lost&FoundGallery',ScreenTransition.Fade)
+        Size: =25
+        Text: ="Lost & Found"
+        Width: =520
+        X: =60
+        Y: =483
+        ZIndex: =2
+
+    txt_Dashboard As label:
+        Align: =Align.Center
+        Color: =RGBA(251, 235, 206, 1)
+        Fill: =RGBA(0, 52, 0, 1)
+        Font: =Font.Georgia
+        Height: =110
+        Size: =35
+        Text: ="Home"
+        Width: =640
+        ZIndex: =3
+
+    btn_PartTime As button:
+        Color: =RGBA(251, 235, 206, 1)
+        Fill: =RGBA(0, 52, 0, 1)
+        Font: =Font.Georgia
+        Height: =144
+        HoverFill: =ColorFade(RGBA(0, 52, 0, 1), -20%)
+        OnSelect: =Navigate(Scr_StaffLookupGallery,ScreenTransition.Fade)
+        Size: =25
+        Text: ="Part-Time Management"
+        Width: =252
+        X: =60
+        Y: =782
+        ZIndex: =4
+
+    btn_Ride As button:
+        Color: =RGBA(251, 235, 206, 1)
+        Fill: =RGBA(0, 52, 0, 1)
+        Font: =Font.Georgia
+        Height: =144
+        HoverFill: =ColorFade(RGBA(0, 52, 0, 1), -20%)
+        OnSelect: =Navigate(Scr_RiderVisitorship,ScreenTransition.Fade)
+        Size: =25
+        Text: ="Ride Visitorship"
+        Width: =256
+        X: =324
+        Y: =782
+        ZIndex: =5
+
+    btn_FAQ As button:
+        Color: =RGBA(251, 235, 206, 1)
+        Fill: =RGBA(0, 52, 0, 1)
+        Font: =Font.Georgia
+        Height: =130
+        HoverFill: =ColorFade(RGBA(0, 52, 0, 1), -20%)
+        OnSelect: =Navigate(Scr_FAQ,ScreenTransition.Fade)
+        Size: =25
+        Text: |-
+            ="FAQ
+            "
+        Width: =256
+        X: =324
+        Y: =639
+        ZIndex: =6
+
+    btn_FirstAid As button:
+        Color: =RGBA(251, 235, 206, 1)
+        Fill: =RGBA(0, 52, 0, 1)
+        Font: =Font.Georgia
+        Height: =130
+        HoverFill: =ColorFade(RGBA(0, 52, 0, 1), -20%)
+        OnSelect: =Navigate(Scr_Inventory,ScreenTransition.Fade)
+        Size: =25
+        Text: |-
+            ="First-Aid & AED
+            "
+        Width: =252
+        X: =60
+        Y: =639
+        ZIndex: =7
+
+    image_User As image:
+        Height: =102
+        Image: =User().Image
+        ImagePosition: =ImagePosition.Fill
+        Width: =118
+        X: =30
+        Y: =146
+        ZIndex: =8
+
+    txt_Username As label:
+        Font: =Font.Georgia
+        Height: =84
+        Size: =21
+        Text: =User().FullName
+        Width: =272
+        X: =168
+        Y: =175
+        ZIndex: =9
+
+    Label5 As label:
+        Font: =Font.Georgia
+        Height: =62
+        Size: =21
+        Text: ="Welcome,"
+        Width: =174
+        X: =168
+        Y: =146
+        ZIndex: =10
+
+    "'btn_Lost&Found_1' As button":
+        Color: =RGBA(251, 235, 206, 1)
+        Fill: =RGBA(0, 52, 0, 1)
+        Font: =Font.Georgia
+        Height: =136
+        HoverFill: =ColorFade(RGBA(0, 52, 0, 1), -20%)
+        OnSelect: |-
+            =Set(_requestTypeFilter,"All");
+            Navigate(Scr_Announcements,ScreenTransition.Fade);
+        Size: =25
+        Text: ="Announcements"
+        Width: =520
+        X: =60
+        Y: =338
+        ZIndex: =11
+

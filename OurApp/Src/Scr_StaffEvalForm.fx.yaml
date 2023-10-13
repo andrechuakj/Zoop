@@ -1,0 +1,1408 @@
+Scr_StaffEvalForm As screen:
+    Fill: =RGBA(251, 235, 206, 1)
+
+    Rectangle2_38 As rectangle:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =126
+        Width: =640
+        Y: =1010
+        ZIndex: =1
+
+    Icon1_43 As icon.Home:
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =56
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Scr_Dashboard,ScreenTransition.Fade)
+        Width: =79
+        X: =16
+        Y: =1028
+        ZIndex: =2
+
+    Image1_42 As image:
+        Height: =52
+        Image: ='lost-and-found'
+        OnSelect: =Navigate('Scr_Lost&FoundGallery')
+        Width: =68
+        X: =117
+        Y: =1032
+        ZIndex: =3
+
+    Image2_38 As image:
+        Height: =52
+        Image: ='first-aid-kit'
+        OnSelect: =Navigate(Scr_Inventory)
+        Width: =68
+        X: =219
+        Y: =1032
+        ZIndex: =4
+
+    Image3_41 As image:
+        Height: =77
+        Image: =boat
+        OnSelect: =Navigate(Scr_RiderVisitorship)
+        Width: =82
+        X: =438
+        Y: =1022
+        ZIndex: =5
+
+    Image4_38 As image:
+        Height: =60
+        Image: =question
+        OnSelect: =Navigate(Scr_FAQ)
+        Width: =85
+        X: =539
+        Y: =1028
+        ZIndex: =6
+
+    Label1_231 As label:
+        Font: =Font.Georgia
+        Size: =12
+        Text: ="Home"
+        Width: =59
+        X: =26
+        Y: =1084
+        ZIndex: =7
+
+    Label1_234 As label:
+        Font: =Font.Georgia
+        Size: =12
+        Text: ="Lost & Found"
+        Width: =62
+        X: =120
+        Y: =1088
+        ZIndex: =8
+
+    Label1_235 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Size: =12
+        Text: ="First-Aid & AED"
+        Width: =78
+        X: =214
+        Y: =1088
+        ZIndex: =9
+
+    Label1_230 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =52
+        Size: =12
+        Text: ="Ride Visitors"
+        Width: =99
+        X: =429
+        Y: =1082
+        ZIndex: =10
+
+    Label1_233 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =48
+        Size: =12
+        Text: ="FAQs"
+        Width: =71
+        X: =546
+        Y: =1084
+        ZIndex: =11
+
+    Button5_34 As button:
+        BorderThickness: =0
+        Fill: =RGBA(251, 235, 206, 1)
+        Height: =136
+        HoverFill: =
+        Size: =24
+        Text: =""
+        Width: =112
+        X: =304
+        Y: =1000
+        ZIndex: =12
+
+    Label1_232 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =52
+        Size: =12
+        Text: ="Part-time Management"
+        Width: =115
+        X: =304
+        Y: =1084
+        ZIndex: =13
+
+    Label8_3 As label:
+        Align: =Align.Center
+        Color: =RGBA(251, 235, 206, 1)
+        Fill: =RGBA(0, 52, 0, 1)
+        Font: =Font.Georgia
+        Height: =110
+        Size: =35
+        Text: ="Staff Evaluation"
+        Width: =640
+        ZIndex: =15
+
+    Button3_3 As button:
+        Fill: =RGBA(0, 52, 0, 1)
+        Height: =55
+        HoverFill: =ColorFade(RGBA(0, 52, 0, 1), -20%)
+        OnSelect: |-
+            =Patch('Staff Evaluation',Defaults('Staff Evaluation'),FormStaff_Eval.Updates);
+            Reset(pen_Signature_Auditor_2);
+            Reset(pen_Signature_Staff_2);
+            ResetForm(FormStaff_Eval);
+            Navigate(Scr_Form_Confirmation);
+        Size: =17
+        Text: ="Submit"
+        Width: =181
+        X: =229
+        Y: =940
+        ZIndex: =16
+
+    FormStaff_Eval As form:
+        BorderColor: =RGBA(0, 52, 0, 1)
+        DataSource: ='Staff Evaluation'
+        DefaultMode: =FormMode.New
+        Height: =676
+        NumberOfColumns: =1
+        Width: =640
+        Y: =110
+        ZIndex: =17
+
+        Title_DataCard5 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Title"
+            Default: =ThisItem.Title
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Staff Evaluation'],DataSourceInfo.DisplayName,"Title")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@'Staff Evaluation'], DataSourceInfo.MaxLength, "Title")
+            Required: =true
+            Update: =DataCardValue51.Text
+            Width: =640
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey54 As label:
+                AutoHeight: =true
+                Color: =RGBA(0, 18, 107, 0)
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue51 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey54.Y + DataCardKey54.Height + 5
+                ZIndex: =2
+
+            ErrorMessage54 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue51.Y + DataCardValue51.Height
+                ZIndex: =3
+
+            StarVisible54 As label:
+                Align: =Align.Center
+                Height: =DataCardKey54.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey54.Y
+                ZIndex: =4
+
+            Label9_3 As label:
+                Height: =63
+                Size: =21
+                Text: ="Assessor"
+                Width: =580
+                X: =30
+                ZIndex: =5
+
+        Q6_DataCard1 As typedDataCard.comboBoxMultiSelectEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Receptivetoteammember_x2019_sfee"
+            Default: =ThisItem.Q6
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Staff Evaluation'],DataSourceInfo.DisplayName,"Receptivetoteammember_x2019_sfee")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue46.SelectedItems
+            Width: =640
+            X: =0
+            Y: =8
+            ZIndex: =1
+
+            DataCardKey49 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: ="Receptive to team member’s feedback"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue46 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =Choices([@'Staff Evaluation'].Q6)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =Choices('Staff Evaluation'.Q6,DataCardValue46.SearchText)
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey49.Y + DataCardKey49.Height + 5
+                ZIndex: =2
+
+            ErrorMessage49 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue46.Y + DataCardValue46.Height
+                ZIndex: =3
+
+            StarVisible49 As label:
+                Align: =Align.Center
+                Height: =DataCardKey49.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey49.Y
+                ZIndex: =4
+
+        Q7_DataCard1 As typedDataCard.comboBoxMultiSelectEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Attentiveandaidguestswhomayneeda"
+            Default: =ThisItem.Q7
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Staff Evaluation'],DataSourceInfo.DisplayName,"Attentiveandaidguestswhomayneeda")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue45.SelectedItems
+            Width: =640
+            X: =0
+            Y: =9
+            ZIndex: =1
+
+            DataCardKey48 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: ="Attentive and aid guests who may need added assistance"
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue45 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =Choices([@'Staff Evaluation'].Q7)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =Choices('Staff Evaluation'.Q7,DataCardValue45.SearchText)
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey48.Y + DataCardKey48.Height + 5
+                ZIndex: =2
+
+            ErrorMessage48 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue45.Y + DataCardValue45.Height
+                ZIndex: =3
+
+            StarVisible48 As label:
+                Align: =Align.Center
+                Height: =DataCardKey48.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey48.Y
+                ZIndex: =4
+
+        Q8_DataCard1 As typedDataCard.comboBoxMultiSelectEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Speakwithguestbasedonprofile_x00"
+            Default: =ThisItem.Q8
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Staff Evaluation'],DataSourceInfo.DisplayName,"Speakwithguestbasedonprofile_x00")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue47.SelectedItems
+            Width: =640
+            X: =0
+            Y: =10
+            ZIndex: =1
+
+            DataCardKey50 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: ="Speak with guest based on profile"
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue47 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =Choices([@'Staff Evaluation'].Q8)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =Choices('Staff Evaluation'.Q8,DataCardValue47.SearchText)
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey50.Y + DataCardKey50.Height + 5
+                ZIndex: =2
+
+            ErrorMessage50 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue47.Y + DataCardValue47.Height
+                ZIndex: =3
+
+            StarVisible50 As label:
+                Align: =Align.Center
+                Height: =DataCardKey50.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey50.Y
+                ZIndex: =4
+
+        Q9_DataCard1 As typedDataCard.comboBoxMultiSelectEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Proactivelyapproachguesttoaid"
+            Default: =ThisItem.Q9
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Staff Evaluation'],DataSourceInfo.DisplayName,"Proactivelyapproachguesttoaid")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: |
+                =270
+            Required: =false
+            Update: =DataCardValue48.SelectedItems
+            Width: =640
+            X: =0
+            Y: =11
+            ZIndex: =1
+
+            DataCardKey51 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: ="Proactively approach guest to aid"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =133
+                ZIndex: =1
+
+            DataCardValue48 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =Choices([@'Staff Evaluation'].Q9)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =Choices('Staff Evaluation'.Q9,DataCardValue48.SearchText)
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =186
+                ZIndex: =2
+
+            ErrorMessage51 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue48.Y + DataCardValue48.Height
+                ZIndex: =3
+
+            StarVisible51 As label:
+                Align: =Align.Center
+                Height: =DataCardKey51.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =133
+                ZIndex: =4
+
+            Label12_1 As label:
+                Color: =RGBA(250, 250, 250, 1)
+                Fill: =RGBA(0, 52, 0, 1)
+                Height: =70
+                Size: =21
+                Text: ="Is Attentive"
+                Width: =580
+                X: =30
+                Y: =43
+                ZIndex: =5
+
+        Q10_DataCard1 As typedDataCard.comboBoxMultiSelectEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Alwaysportraygoodbodylanguage_x0"
+            Default: =ThisItem.Q10
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Staff Evaluation'],DataSourceInfo.DisplayName,"Alwaysportraygoodbodylanguage_x0")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue49.SelectedItems
+            Width: =640
+            X: =0
+            Y: =12
+            ZIndex: =1
+
+            DataCardKey52 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: ="Always portray good body language"
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue49 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =Choices([@'Staff Evaluation'].Q10)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =Choices('Staff Evaluation'.Q10,DataCardValue49.SearchText)
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey52.Y + DataCardKey52.Height + 5
+                ZIndex: =2
+
+            ErrorMessage52 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue49.Y + DataCardValue49.Height
+                ZIndex: =3
+
+            StarVisible52 As label:
+                Align: =Align.Center
+                Height: =DataCardKey52.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey52.Y
+                ZIndex: =4
+
+        Candidate_DataCard1 As typedDataCard.textualEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Candidate"
+            Default: =ThisItem.'Staff Name'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Staff Evaluation'],DataSourceInfo.DisplayName,"Candidate")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@'Staff Evaluation'], DataSourceInfo.MaxLength, "Candidate")
+            Required: =false
+            Update: =DataCardValue38.Text
+            Width: =640
+            X: =0
+            Y: =1
+            ZIndex: =5
+
+            DataCardKey41 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue38 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey41.Y + DataCardKey41.Height + 5
+                ZIndex: =2
+
+            ErrorMessage41 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue38.Y + DataCardValue38.Height
+                ZIndex: =3
+
+            StarVisible41 As label:
+                Align: =Align.Center
+                Height: =DataCardKey41.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey41.Y
+                ZIndex: =4
+
+        "'Candidate Position_DataCard1' As typedDataCard.textualEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="CandidatePosition"
+            Default: =ThisItem.'Staff Position'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Staff Evaluation'],DataSourceInfo.DisplayName,"CandidatePosition")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            MaxLength: =DataSourceInfo([@'Staff Evaluation'], DataSourceInfo.MaxLength, "CandidatePosition")
+            Required: =false
+            Update: =DataCardValue39.Text
+            Width: =640
+            X: =0
+            Y: =2
+            ZIndex: =5
+
+            DataCardKey42 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue39 As text:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                MaxLength: =Parent.MaxLength
+                PaddingLeft: =5
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey42.Y + DataCardKey42.Height + 5
+                ZIndex: =2
+
+            ErrorMessage42 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue39.Y + DataCardValue39.Height
+                ZIndex: =3
+
+            StarVisible42 As label:
+                Align: =Align.Center
+                Height: =DataCardKey42.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey42.Y
+                ZIndex: =4
+
+        Q1_DataCard1 As typedDataCard.comboBoxMultiSelectEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Engageguestwithpositivenon_x002d"
+            Default: =ThisItem.Q1
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Staff Evaluation'],DataSourceInfo.DisplayName,"Engageguestwithpositivenon_x002d")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =270
+            Required: =false
+            Update: =DataCardValue40.SelectedItems
+            Width: =640
+            X: =0
+            Y: =3
+            ZIndex: =5
+
+            DataCardKey43 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: ="Engage guest with positive non-verbal communication"
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =136
+                ZIndex: =1
+
+            DataCardValue40 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =Choices([@'Staff Evaluation'].Q1)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =Choices('Staff Evaluation'.Q1,DataCardValue40.SearchText)
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =220
+                ZIndex: =2
+
+            ErrorMessage43 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =290
+                ZIndex: =3
+
+            StarVisible43 As label:
+                Align: =Align.Center
+                Height: =DataCardKey43.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =136
+                ZIndex: =4
+
+            Label10_4 As label:
+                Color: =RGBA(250, 250, 250, 1)
+                Fill: =RGBA(0, 52, 0, 1)
+                Height: =70
+                Size: =21
+                Text: ="Conveys Happiness"
+                Width: =580
+                X: =30
+                Y: =39
+                ZIndex: =5
+
+        Q2_DataCard1 As typedDataCard.comboBoxMultiSelectEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Speakpleasantlyandcourteouslywit"
+            Default: =ThisItem.Q2
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Staff Evaluation'],DataSourceInfo.DisplayName,"Speakpleasantlyandcourteouslywit")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue41.SelectedItems
+            Width: =640
+            X: =0
+            Y: =4
+            ZIndex: =5
+
+            DataCardKey44 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: ="Speak pleasantly and courteously with guests"
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue41 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =Choices([@'Staff Evaluation'].Q2)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =Choices('Staff Evaluation'.Q2,DataCardValue41.SearchText)
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey44.Y + DataCardKey44.Height + 5
+                ZIndex: =2
+
+            ErrorMessage44 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue41.Y + DataCardValue41.Height
+                ZIndex: =3
+
+            StarVisible44 As label:
+                Align: =Align.Center
+                Height: =DataCardKey44.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey44.Y
+                ZIndex: =4
+
+        Q3_DataCard1 As typedDataCard.comboBoxMultiSelectEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="OData__x0033__x002e_Demonstratehighpos"
+            Default: =ThisItem.Q3
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Staff Evaluation'],DataSourceInfo.DisplayName,"OData__x0033__x002e_Demonstratehighpos")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue42.SelectedItems
+            Width: =640
+            X: =0
+            Y: =5
+            ZIndex: =5
+
+            DataCardKey45 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: ="Demonstrate high positive energy level while on shift"
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue42 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =Choices([@'Staff Evaluation'].Q3)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =Choices('Staff Evaluation'.Q3,DataCardValue42.SearchText)
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey45.Y + DataCardKey45.Height + 5
+                ZIndex: =2
+
+            ErrorMessage45 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue42.Y + DataCardValue42.Height
+                ZIndex: =3
+
+            StarVisible45 As label:
+                Align: =Align.Center
+                Height: =DataCardKey45.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey45.Y
+                ZIndex: =4
+
+        Q4_DataCard1 As typedDataCard.comboBoxMultiSelectEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Bidawarmwelcomeandafondfarewellt"
+            Default: =ThisItem.Q4
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Staff Evaluation'],DataSourceInfo.DisplayName,"Bidawarmwelcomeandafondfarewellt")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue43.SelectedItems
+            Width: =640
+            X: =0
+            Y: =6
+            ZIndex: =5
+
+            DataCardKey46 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: ="Bid a warm welcome and a fond farewell to guests"
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue43 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =Choices([@'Staff Evaluation'].Q4)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =Choices('Staff Evaluation'.Q4,DataCardValue43.SearchText)
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey46.Y + DataCardKey46.Height + 5
+                ZIndex: =2
+
+            ErrorMessage46 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue43.Y + DataCardValue43.Height
+                ZIndex: =3
+
+            StarVisible46 As label:
+                Align: =Align.Center
+                Height: =DataCardKey46.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey46.Y
+                ZIndex: =4
+
+        Q5_DataCard1 As typedDataCard.comboBoxMultiSelectEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="Abletolistenandassistwithguest_x"
+            Default: =ThisItem.Q5
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Staff Evaluation'],DataSourceInfo.DisplayName,"Abletolistenandassistwithguest_x")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: |
+                =270
+            Required: =false
+            Update: =DataCardValue44.SelectedItems
+            Width: =640
+            X: =0
+            Y: =7
+            ZIndex: =5
+
+            DataCardKey47 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: ="Able to listen and assist with guest’s needs accordingly"
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =106
+                ZIndex: =1
+
+            DataCardValue44 As combobox:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultSelectedItems: =Parent.Default
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Height: =70
+                Items: =Choices([@'Staff Evaluation'].Q5)
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                SearchFields: =["Value"]
+                SearchItems: =Choices('Staff Evaluation'.Q5,DataCardValue44.SearchText)
+                Size: =21
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =190
+                ZIndex: =2
+
+            ErrorMessage47 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue44.Y + DataCardValue44.Height
+                ZIndex: =3
+
+            StarVisible47 As label:
+                Align: =Align.Center
+                Height: =DataCardKey47.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =106
+                ZIndex: =4
+
+            Label11_5 As label:
+                Color: =RGBA(250, 250, 250, 1)
+                Fill: =RGBA(0, 52, 0, 1)
+                Height: =70
+                Size: =21
+                Text: ="Shows Empathy"
+                Width: =580
+                X: =30
+                Y: =17
+                ZIndex: =5
+
+    img_Staff_Signature_4 As image:
+        BorderColor: =RGBA(0, 52, 0, 1)
+        BorderThickness: =2
+        Fill: =RGBA(250, 250, 250, 0.2)
+        Height: =120
+        Image: =pen_Signature_Staff_2.Image
+        ImagePosition: =ImagePosition.Fill
+        OnSelect: =Set(varShowSignature, true)
+        Width: =307
+        X: =11
+        Y: =805
+        ZIndex: =18
+
+    img_Staff_Signature_5 As image:
+        BorderColor: =RGBA(0, 52, 0, 1)
+        BorderThickness: =2
+        Fill: =RGBA(250, 250, 250, 0.2)
+        Height: =120
+        Image: =pen_Signature_Auditor_2.Image
+        ImagePosition: =ImagePosition.Fill
+        OnSelect: =Set(varShowSignatureA, true)
+        Width: =307
+        X: =325
+        Y: =805
+        ZIndex: =19
+
+    Label3_8 As label:
+        Align: =Align.Center
+        Color: =RGBA(0, 52, 0, 1)
+        Text: ="Staff Signature"
+        X: =93
+        Y: =894
+        ZIndex: =20
+
+    Label3_9 As label:
+        Align: =Align.Center
+        Color: =RGBA(0, 52, 0, 1)
+        Text: ="Auditor Signature"
+        Width: =177
+        X: =390
+        Y: =894
+        ZIndex: =21
+
+    grp_Signature_Staff_2 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =27
+
+        lbl_Screen_Disable_4 As label:
+            Fill: =RGBA(149, 149, 149, 0.4)
+            Height: =1136
+            Text: =""
+            Visible: =varShowSignature
+            Width: =640
+            ZIndex: =22
+
+        lbl_Signature_Background_4 As label:
+            Fill: |-
+                =RGBA(250, 250, 250, 1
+                )
+            Height: =452
+            Text: =""
+            Visible: =varShowSignature
+            Width: =640
+            Y: =502
+            ZIndex: =23
+
+        pen_Signature_Staff_2 As inkControl:
+            BorderThickness: =0
+            Fill: |
+                =RGBA(0,0,0,0)
+            Height: =452
+            ShowControls: =false
+            Visible: =varShowSignature
+            Width: =640
+            Y: =502
+            ZIndex: =24
+
+        lbl_Signature_Line_4 As label:
+            Fill: |-
+                =RGBA(0, 0, 0, 1
+                )
+            Height: =2
+            Text: =""
+            Visible: =varShowSignature
+            Width: =640
+            Y: =762
+            ZIndex: =25
+
+        lbl_Signature_Subheader_4 As label:
+            Fill: |-
+                =RGBA(0, 0, 0, 0
+                )
+            Height: =76
+            Text: ="Staff's Signature"
+            Visible: =varShowSignature
+            Width: =252
+            X: =104
+            Y: =762
+            ZIndex: =26
+
+        Icon1_47 As icon.Check:
+            Height: =50
+            Icon: =Icon.Check
+            OnSelect: |
+                =Set(varShowSignature, false)
+            Visible: =varShowSignature
+            Width: =50
+            X: =438
+            Y: =870
+            ZIndex: =28
+
+        Icon2_6 As icon.Cancel:
+            Height: =50
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =Set(varShowSignature, false);
+                Reset(pen_Signature_Staff_2);
+            Visible: =varShowSignature
+            Width: =50
+            X: =224
+            Y: =875
+            ZIndex: =29
+
+        Label2_9 As label:
+            Height: =50
+            OnSelect: |-
+                =Set(varShowSignature, false);
+                Reset(pen_Signature_Staff_2);
+            Text: ="Decline"
+            Visible: =varShowSignature
+            X: =274
+            Y: =873
+            ZIndex: =30
+
+        Label2_11 As label:
+            Height: =50
+            OnSelect: |
+                =Set(varShowSignature, false)
+            Text: ="Accept"
+            Visible: =varShowSignature
+            X: =490
+            Y: =871
+            ZIndex: =31
+
+    grp_Signature_Auditor_2 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =38
+
+        lbl_Screen_Disable_5 As label:
+            Fill: =RGBA(149, 149, 149, 0.4)
+            Height: =1136
+            Text: =""
+            Visible: |
+                =varShowSignatureA
+            Width: =640
+            ZIndex: =32
+
+        lbl_Signature_Background_5 As label:
+            Fill: |-
+                =RGBA(250, 250, 250, 1
+                )
+            Height: =452
+            Text: =""
+            Visible: |
+                =varShowSignatureA
+            Width: =640
+            Y: =502
+            ZIndex: =33
+
+        pen_Signature_Auditor_2 As inkControl:
+            BorderThickness: =0
+            Fill: |
+                =RGBA(0,0,0,0)
+            Height: =452
+            ShowControls: =false
+            Visible: |
+                =varShowSignatureA
+            Width: =640
+            Y: =502
+            ZIndex: =34
+
+        lbl_Signature_Line_5 As label:
+            Fill: |-
+                =RGBA(0, 0, 0, 1
+                )
+            Height: =2
+            Text: =""
+            Visible: |
+                =varShowSignatureA
+            Width: =640
+            Y: =762
+            ZIndex: =35
+
+        lbl_Signature_Subheader_5 As label:
+            Fill: |-
+                =RGBA(0, 0, 0, 0
+                )
+            Height: =76
+            Text: ="Auditor's Signature"
+            Visible: |
+                =varShowSignatureA
+            Width: =252
+            X: =104
+            Y: =762
+            ZIndex: =36
+
+        Icon1_48 As icon.Check:
+            Height: =50
+            Icon: =Icon.Check
+            OnSelect: |
+                =Set(varShowSignatureA, false)
+            Visible: |
+                =varShowSignatureA
+            Width: =50
+            X: =440
+            Y: =871
+            ZIndex: =37
+
+        Icon2_7 As icon.Cancel:
+            Height: =50
+            Icon: =Icon.Cancel
+            OnSelect: |-
+                =Set(varShowSignatureA, false);
+                Reset(pen_Signature_Auditor_2);
+            Visible: |
+                =varShowSignatureA
+            Width: =50
+            X: =219
+            Y: =873
+            ZIndex: =39
+
+        Label2_10 As label:
+            Height: =50
+            OnSelect: |-
+                =Set(varShowSignatureA, false);
+                Reset(pen_Signature_Auditor_2);
+            Text: ="Decline"
+            Visible: |
+                =varShowSignatureA
+            X: =269
+            Y: =871
+            ZIndex: =40
+
+        Label2_12 As label:
+            Height: =50
+            OnSelect: |
+                =Set(varShowSignatureA, false)
+            Text: ="Accept"
+            Visible: |
+                =varShowSignatureA
+            X: =490
+            Y: =870
+            ZIndex: =41
+
+    btn_addnewride_cancel_43 As icon.Cancel:
+        AccessibleLabel: =Self.Tooltip
+        Height: =88
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate(Scr_StaffEvalGallery, ScreenTransition.Fade)
+        PaddingBottom: =22
+        PaddingLeft: =22
+        PaddingRight: =22
+        PaddingTop: =22
+        TabIndex: =0
+        Tooltip: ="Cancel item"
+        Width: =77
+        X: =11
+        Y: =11
+        ZIndex: =42
+
+    Image5_44 As image:
+        Height: =63
+        Image: =human
+        OnSelect: =Navigate(Scr_StaffLookupGallery)
+        Width: =86
+        X: =319
+        Y: =1021
+        ZIndex: =43
+

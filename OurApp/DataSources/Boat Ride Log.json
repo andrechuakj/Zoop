@@ -1,0 +1,53 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+    "CdpRevision": {
+      "BaseUrl": "/",
+      "LastChangedTimeString": "2023-09-14T16:54:37.9020000Z",
+      "RevisionNumber": 1
+    },
+    "ConnectedDataSourceInfoNameMapping": {
+      "{Attachments}": "Attachments",
+      "{Attachments}@odata.type": "{Attachments} ({Attachments}@odata.type)",
+      "{FilenameWithExtension}": "File name with extension",
+      "{FullPath}": "Full Path",
+      "{HasAttachments}": "Has attachments",
+      "{Identifier}": "Identifier",
+      "{IsFolder}": "IsFolder",
+      "{Link}": "Link to item",
+      "{ModerationComment}": "Comments associated with the content approval of this list item",
+      "{ModerationStatus}": "Content approval status",
+      "{Name}": "Name",
+      "{Path}": "Folder path",
+      "{Thumbnail}": "Thumbnail",
+      "{TriggerWindowEndToken}": "Trigger Window End Token",
+      "{TriggerWindowStartToken}": "Trigger Window Start Token",
+      "{VersionNumber}": "Version number",
+      "Active": "Active",
+      "Author": "Created By",
+      "Author#Claims": "Created By Claims",
+      "BoatNumber": "Boat Number",
+      "ComplianceAssetId": "Compliance Asset Id",
+      "Created": "Created",
+      "Date": "Date",
+      "Downtime_x0028_mins_x0029_": "Downtime (mins)",
+      "DowntimeCause": "Downtime Cause",
+      "Editor": "Modified By",
+      "Editor#Claims": "Modified By Claims",
+      "ID": "ID",
+      "Modified": "Modified",
+      "NumberofReRiders": "Number of ReRiders",
+      "NumberofRiders": "Number of Riders",
+      "OData__ColorTag": "Color Tag",
+      "TimeDeparted": "Time Departed",
+      "TimeReturned": "Time Returned",
+      "Title": "Title"
+    },
+    "DatasetName": "https://nusu.sharepoint.com/teams/Zookeepers",
+    "EncodeDataset": true,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "Name": "Boat Ride Log",
+    "Type": "ConnectedDataSourceInfo"
+  }
+]

@@ -1,0 +1,225 @@
+Scr_SignatureScreen As screen:
+    Fill: =RGBA(251, 235, 206, 1)
+
+    Rectangle2_17 As rectangle:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =126
+        Width: =640
+        Y: =1010
+        ZIndex: =1
+
+    header As label:
+        Align: =Align.Center
+        Color: =RGBA(251, 235, 206, 1)
+        Fill: =RGBA(0, 52, 0, 1)
+        Height: =110
+        Size: =35
+        Text: ="Signature"
+        Width: =640
+        ZIndex: =2
+
+    "'reset button' As icon.Reload":
+        Height: =74
+        Icon: =Icon.Reload
+        OnSelect: =Reset(signature_pen_input)
+        Width: =76
+        X: =510
+        Y: =916
+        ZIndex: =3
+
+    signature_clickshield As label:
+        Color: =RGBA(175, 191, 224, 1)
+        Fill: =RGBA(175, 191, 224, 1)
+        Height: =378
+        Size: =21
+        Text: =""
+        Width: =640
+        Y: =336
+        ZIndex: =4
+
+    signature_pen_input As inkControl:
+        BorderThickness: =0
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(0, 52, 0, 1)
+        Height: =378
+        ShowControls: =false
+        Width: =640
+        Y: =336
+        ZIndex: =5
+
+    customer_name As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =70
+        Size: =21
+        Text: ="Customer Name"
+        Width: =560
+        X: =61
+        Y: =611
+        ZIndex: =6
+
+    black_line As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =2
+        Size: =21
+        Text: =""
+        Width: =560
+        X: =61
+        Y: =611
+        ZIndex: =7
+
+    submit_button As button:
+        Fill: =RGBA(0, 52, 0, 1)
+        Height: =70
+        OnSelect: =Navigate(Scr_RecordedPage,ScreenTransition.Fade)
+        Size: =24
+        Text: ="Submit"
+        Width: =280
+        X: =38
+        Y: =900
+        ZIndex: =8
+
+    btn_addnewride_cancel_9 As icon.Cancel:
+        AccessibleLabel: =Self.Tooltip
+        Height: =88
+        Icon: =Icon.BackArrow
+        OnSelect: =Back()
+        PaddingBottom: =22
+        PaddingLeft: =22
+        PaddingRight: =22
+        PaddingTop: =22
+        TabIndex: =0
+        Tooltip: ="Cancel item"
+        Width: =77
+        X: =11
+        Y: =11
+        ZIndex: =22
+
+    Icon1_22 As icon.Home:
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =56
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Scr_Dashboard,ScreenTransition.Fade)
+        Width: =79
+        X: =16
+        Y: =1028
+        ZIndex: =23
+
+    Button5_17 As button:
+        BorderThickness: =0
+        Fill: =RGBA(251, 235, 206, 1)
+        Height: =136
+        HoverFill: =
+        Size: =24
+        Text: =""
+        Width: =112
+        X: =95
+        Y: =1000
+        ZIndex: =24
+
+    Image1_20 As image:
+        Height: =52
+        Image: ='lost-and-found'
+        OnSelect: =Navigate('Scr_Lost&FoundGallery')
+        Width: =68
+        X: =117
+        Y: =1032
+        ZIndex: =25
+
+    Image2_17 As image:
+        Height: =52
+        Image: ='first-aid-kit'
+        OnSelect: =Navigate(Scr_Inventory)
+        Width: =68
+        X: =219
+        Y: =1032
+        ZIndex: =26
+
+    Image3_19 As image:
+        Height: =77
+        Image: =boat
+        OnSelect: =Navigate(Scr_RiderVisitorship)
+        Width: =82
+        X: =438
+        Y: =1022
+        ZIndex: =27
+
+    Image4_17 As image:
+        Height: =60
+        Image: =question
+        OnSelect: =Navigate(Scr_FAQ)
+        Width: =85
+        X: =539
+        Y: =1028
+        ZIndex: =28
+
+    Image5_21 As image:
+        Height: =63
+        Image: =human
+        OnSelect: =Navigate(Scr_StaffLookupGallery)
+        Width: =86
+        X: =319
+        Y: =1021
+        ZIndex: =29
+
+    Label1_104 As label:
+        Font: =Font.Georgia
+        Size: =12
+        Text: ="Home"
+        Width: =59
+        X: =26
+        Y: =1084
+        ZIndex: =30
+
+    Label1_105 As label:
+        Font: =Font.Georgia
+        Size: =12
+        Text: ="Lost & Found"
+        Width: =62
+        X: =120
+        Y: =1088
+        ZIndex: =31
+
+    Label1_106 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Size: =12
+        Text: ="First-Aid & AED"
+        Width: =78
+        X: =214
+        Y: =1088
+        ZIndex: =32
+
+    Label1_107 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =52
+        Size: =12
+        Text: ="Part-time Management"
+        Width: =115
+        X: =304
+        Y: =1084
+        ZIndex: =33
+
+    Label1_108 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =52
+        Size: =12
+        Text: ="Ride Visitors"
+        Width: =99
+        X: =429
+        Y: =1082
+        ZIndex: =34
+
+    Label1_109 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =48
+        Size: =12
+        Text: ="FAQs"
+        Width: =71
+        X: =546
+        Y: =1084
+        ZIndex: =35
+

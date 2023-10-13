@@ -1,0 +1,22 @@
+Scr_AccessDenied As screen:
+
+    AccessDeniedBackground As image:
+        Height: =1136
+        Image: ='Mandai Zoo App (4)'
+        ImagePosition: =ImagePosition.Fill
+        Width: =640
+        ZIndex: =1
+
+    btn_Register As button:
+        Fill: =RGBA(0, 52, 0, 1)
+        Font: =Font.Georgia
+        Height: =54
+        HoverFill: =ColorFade(RGBA(0, 52, 0, 1), -20%)
+        OnSelect: =Navigate(Scr_AccessRequest,ScreenTransition.Fade)
+        Size: =24
+        Text: ="Register"
+        Width: =250
+        X: =195
+        Y: =745
+        ZIndex: =2
+

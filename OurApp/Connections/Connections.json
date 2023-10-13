@@ -1,0 +1,113 @@
+{
+  "5c193f8e-8171-4531-bc18-45c3b7e00aa6": {
+    "appActions": [
+      "UserPhotoMetadata",
+      "UserPhotoV2",
+      "UserProfile"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Users",
+      "iconUri": "https://connectoricons-prod.azureedge.net/master/1.0.1653.3400/office365users/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365users",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [
+      "Office365Users"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "5c193f8e-8171-4531-bc18-45c3b7e00aa6"
+  },
+  "d8657897-5791-4ce2-812f-40d4dce8e61e": {
+    "appActions": [
+      "providers/PowerPlatform.Governance/Operations/Read",
+      "providers/PowerPlatform.Governance/Operations/Write"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1656/1.0.1656.3429/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {
+      "https://nusu.sharepoint.com/teams/Zookeepers": {
+        "dataSources": {
+          "Access to App List": {
+            "tableName": "fe4ad167-fe68-48b5-9c70-f11219cbf28b"
+          },
+          "Announcements": {
+            "tableName": "34fe02c2-2044-43db-b232-c61062cce9a6"
+          },
+          "Boat Ride Log": {
+            "tableName": "377a0e82-2aca-4c69-b1ef-d702254a1869"
+          },
+          "Claim Signature List": {
+            "tableName": "8f0895ed-c321-4a72-aab9-d5aaa9215913"
+          },
+          "Entrance Checklist": {
+            "tableName": "63dd2aa7-2f9a-4e77-8825-8b9fd2f981fe"
+          },
+          "FAQ": {
+            "tableName": "4def3f96-3e2a-4470-8916-7e086a6fb54e"
+          },
+          "First aid station inventory": {
+            "tableName": "352aa17c-3604-4a1a-a3e2-c4661a5385c0"
+          },
+          "Found List": {
+            "tableName": "04999ff1-c9f0-40e1-8af7-ddf811ff9ed8"
+          },
+          "Lost List": {
+            "tableName": "af002152-6951-4506-877b-f95e9154e732"
+          },
+          "RS Attendance": {
+            "tableName": "614cbe53-6203-471e-aa6c-d5b9ab5e1357"
+          },
+          "Staff Audit": {
+            "tableName": "31b85894-3889-4d50-8b53-b2031627bb97"
+          },
+          "Staff Audit Question Bank": {
+            "tableName": "d3c95901-0846-4118-afd8-2c6bc939c3e1"
+          },
+          "Staff Audit Question Bank_1": {
+            "tableName": "d3c95901-0846-4118-afd8-2c6bc939c3e1"
+          },
+          "Staff Audit_1": {
+            "tableName": "31b85894-3889-4d50-8b53-b2031627bb97"
+          },
+          "Staff Evaluation": {
+            "tableName": "64c9ac17-1357-44d0-92c8-fcdeb1dd2890"
+          },
+          "Staff Lookup": {
+            "tableName": "5a2542fb-3a9c-4466-bc1c-8f28d7a020f1"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "Access to App List",
+      "First aid station inventory",
+      "Boat Ride Log",
+      "FAQ",
+      "Announcements",
+      "Claim Signature List",
+      "Found List",
+      "Lost List",
+      "Staff Audit",
+      "Staff Audit Question Bank",
+      "RS Attendance",
+      "Staff Lookup",
+      "Staff Audit_1",
+      "Entrance Checklist",
+      "Staff Audit Question Bank_1",
+      "Staff Evaluation"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "d8657897-5791-4ce2-812f-40d4dce8e61e"
+  }
+}

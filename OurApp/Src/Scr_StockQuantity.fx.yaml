@@ -1,0 +1,398 @@
+Scr_StockQuantity As screen:
+    Fill: =RGBA(251, 235, 206, 1)
+
+    Rectangle2 As rectangle:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =126
+        Width: =640
+        Y: =1009
+        ZIndex: =1
+
+    Button5_1 As button:
+        BorderThickness: =0
+        Fill: =RGBA(251, 235, 206, 1)
+        Height: =136
+        HoverFill: =
+        Size: =24
+        Text: =""
+        Width: =92
+        X: =103
+        Y: =1000
+        ZIndex: =2
+
+    txt_StockQuantity As label:
+        Align: =Align.Center
+        Color: =RGBA(251, 235, 206, 1)
+        Fill: =RGBA(0, 52, 0, 1)
+        Font: =Font.Georgia
+        Height: =110
+        Size: =35
+        Text: =clicked.Location
+        Width: =640
+        ZIndex: =3
+
+    Container1 As groupContainer.manualLayoutContainer:
+        Height: =249
+        Width: =568
+        X: =33
+        Y: =147
+        ZIndex: =4
+
+        Label3 As label:
+            Font: =Font.Georgia
+            Height: =68
+            Size: =21
+            Text: |-
+                ="Minimum Quantity:"
+            Width: =272
+            X: =8
+            Y: =57
+            ZIndex: =1
+
+        Label3_1 As label:
+            Font: =Font.Georgia
+            Height: =68
+            Size: =21
+            Text: |-
+                ="Current Quantity:"
+            Width: =240
+            X: =316
+            Y: =57
+            ZIndex: =2
+
+        MinQuantityValue As label:
+            Align: =Align.Center
+            Font: =Font.Georgia
+            Height: =68
+            Size: =21
+            Text: =clicked.'Minimum quantity'
+            Width: =272
+            Y: =125
+            ZIndex: =3
+
+        CurrentQuantityValue As label:
+            Align: =Align.Center
+            Font: =Font.Georgia
+            Height: =68
+            Size: =21
+            Text: =clicked.'Current quantity'
+            Width: =272
+            X: =296
+            Y: =125
+            ZIndex: =4
+
+    frm_UpdateExpiry As form:
+        DataSource: ='First aid station inventory'
+        Height: =158
+        Item: =clicked
+        Width: =404
+        X: =36
+        Y: =721
+        ZIndex: =5
+
+        Expiry_DataCard1 As typedDataCard.dateEditCard:
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="field_9"
+            Default: =ThisItem.Expiry
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'First aid station inventory'],DataSourceInfo.DisplayName,"field_9")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue3.SelectedDate
+            Width: =404
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            DataCardKey4 As label:
+                AutoHeight: =true
+                Height: =48
+                Size: =21
+                Text: =Parent.DisplayName
+                Width: =Parent.Width - 60
+                Wrap: =false
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue3 As datepicker:
+                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                DefaultDate: =Parent.Default
+                DisplayMode: =Parent.DisplayMode
+                EndYear: =Year(Today())+100
+                Height: =82
+                InputTextPlaceholder: =If(IsBlank(Self.SelectedDate), Text(First('First aid station inventory').Expiry), Self.Format, Self.Language)
+                IsEditable: =true
+                PaddingBottom: =0
+                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                Size: =24
+                StartYear: =1899
+                Tooltip: =Parent.DisplayName
+                Width: =404
+                Y: =58
+                ZIndex: =2
+
+            ErrorMessage4 As label:
+                AutoHeight: =true
+                Height: =10
+                Live: =Live.Assertive
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                Size: =24
+                Text: =Parent.Error
+                Visible: =Parent.DisplayMode=DisplayMode.Edit
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardValue3.Y + DataCardValue3.Height
+                ZIndex: =3
+
+            StarVisible4 As label:
+                Align: =Align.Center
+                Height: =DataCardKey4.Height
+                Size: =21
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                Wrap: =false
+                Y: =DataCardKey4.Y
+                ZIndex: =4
+
+    txtin_UsedAmt As text:
+        Default: ="0"
+        Font: =Font.Georgia
+        Height: =65
+        Reset: =true
+        Size: =21
+        Width: =397
+        X: =33
+        Y: =621
+        ZIndex: =6
+
+    txt_UsedAmt As label:
+        Font: =Font.Georgia
+        Height: =70
+        Size: =21
+        Text: |-
+            ="Use Amount:"
+        Width: =560
+        X: =33
+        Y: =554
+        ZIndex: =7
+
+    btn_RequestAccess_6 As button:
+        Color: =RGBA(251, 235, 206, 1)
+        Fill: =RGBA(0, 52, 0, 1)
+        Font: =Font.Georgia
+        Height: =46
+        HoverFill: =ColorFade(RGBA(0, 52, 0, 1), -20%)
+        OnSelect: |-
+            =Patch('First aid station inventory', clicked, {'Current quantity':CurrentQuantityValue.Text - txtin_UsedAmt.Text, diffQty: CurrentQuantityValue.Text - txtin_UsedAmt.Text - MinQuantityValue.Text, 'Use Count':txt_UseCount.Text + txtin_UsedAmt});
+            Navigate(Scr_ItemUsed,ScreenTransition.Fade);
+            Reset(txtin_UsedAmt);
+        Size: =24
+        Text: ="Use"
+        Width: =152
+        X: =462
+        Y: =631
+        ZIndex: =8
+
+    btn_RequestAccess_7 As button:
+        Color: =RGBA(251, 235, 206, 1)
+        Fill: =RGBA(0, 52, 0, 1)
+        Font: =Font.Georgia
+        Height: =46
+        HoverFill: =ColorFade(RGBA(0, 52, 0, 1), -20%)
+        OnSelect: |-
+            =Patch('First aid station inventory', clicked, {Expiry:DataCardValue3.SelectedDate});
+            Navigate(Scr_ExpiryUpdated,ScreenTransition.Fade);
+        Size: =24
+        Text: ="Update"
+        Width: =152
+        X: =462
+        Y: =798
+        ZIndex: =9
+
+    Icon1_7 As icon.Home:
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =56
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Scr_Dashboard,ScreenTransition.Fade)
+        Width: =79
+        X: =16
+        Y: =1028
+        ZIndex: =10
+
+    Image1_5 As image:
+        Height: =52
+        Image: ='lost-and-found'
+        OnSelect: =Navigate('Scr_Lost&FoundGallery')
+        Width: =68
+        X: =117
+        Y: =1032
+        ZIndex: =11
+
+    Image2_2 As image:
+        Height: =52
+        Image: ='first-aid-kit'
+        OnSelect: =Navigate(Scr_Inventory)
+        Width: =68
+        X: =219
+        Y: =1032
+        ZIndex: =12
+
+    Image3_4 As image:
+        Height: =77
+        Image: =boat
+        OnSelect: =Navigate(Scr_RiderVisitorship)
+        Width: =82
+        X: =438
+        Y: =1022
+        ZIndex: =13
+
+    Image4_2 As image:
+        Height: =60
+        Image: =question
+        OnSelect: =Navigate(Scr_FAQ)
+        Width: =85
+        X: =539
+        Y: =1028
+        ZIndex: =14
+
+    Image5_6 As image:
+        Height: =63
+        Image: =human
+        OnSelect: =Navigate(Scr_StaffLookupGallery)
+        Width: =86
+        X: =319
+        Y: =1021
+        ZIndex: =15
+
+    Label1_14 As label:
+        Font: =Font.Georgia
+        Size: =12
+        Text: ="Home"
+        Width: =59
+        X: =26
+        Y: =1084
+        ZIndex: =16
+
+    Label1_15 As label:
+        Font: =Font.Georgia
+        Size: =12
+        Text: ="Lost & Found"
+        Width: =62
+        X: =120
+        Y: =1088
+        ZIndex: =17
+
+    Label1_16 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Size: =12
+        Text: ="First-Aid & AED"
+        Width: =78
+        X: =214
+        Y: =1088
+        ZIndex: =18
+
+    Label1_17 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =52
+        Size: =12
+        Text: ="Part-time Management"
+        Width: =115
+        X: =304
+        Y: =1084
+        ZIndex: =19
+
+    Label1_18 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =52
+        Size: =12
+        Text: ="Ride Visitors"
+        Width: =99
+        X: =429
+        Y: =1082
+        ZIndex: =20
+
+    Label1_19 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =48
+        Size: =12
+        Text: ="FAQs"
+        Width: =71
+        X: =546
+        Y: =1084
+        ZIndex: =21
+
+    btn_addnewride_cancel_19 As icon.Cancel:
+        AccessibleLabel: =Self.Tooltip
+        Height: =88
+        Icon: =Icon.BackArrow
+        OnSelect: =Back()
+        PaddingBottom: =22
+        PaddingLeft: =22
+        PaddingRight: =22
+        PaddingTop: =22
+        TabIndex: =0
+        Tooltip: ="Cancel item"
+        Width: =77
+        X: =11
+        Y: =11
+        ZIndex: =22
+
+    txt_RestockAmt_1 As label:
+        Font: =Font.Georgia
+        Height: =70
+        Size: =21
+        Text: |-
+            ="Top-up Amount:"
+        Width: =560
+        X: =33
+        Y: =380
+        ZIndex: =23
+
+    txtin_RestockAmt_1 As text:
+        Default: =If(clicked.'Current quantity'<clicked.'Minimum quantity', MinQuantityValue - CurrentQuantityValue, 0)
+        Font: =Font.Georgia
+        Height: =66
+        Size: =21
+        Width: =397
+        X: =32
+        Y: =464
+        ZIndex: =24
+
+    btn_RequestAccess_8 As button:
+        Color: =RGBA(251, 235, 206, 1)
+        Fill: =RGBA(0, 52, 0, 1)
+        Font: =Font.Georgia
+        Height: =46
+        HoverFill: =ColorFade(RGBA(0, 52, 0, 1), -20%)
+        OnSelect: |-
+            =Patch('First aid station inventory', clicked, {'Current quantity':CurrentQuantityValue.Text + txtin_RestockAmt_1.Text});
+            Patch('First aid station inventory', clicked, {diffQty: CurrentQuantityValue.Text + txtin_RestockAmt_1.Text - MinQuantityValue.Text});
+            Navigate(Scr_ItemTopUp,ScreenTransition.Fade);
+        Size: =24
+        Text: |-
+            ="Top-up
+            "
+        Width: =152
+        X: =462
+        Y: =464
+        ZIndex: =25
+
+    txt_UseCount As label:
+        Color: =RGBA(0, 0, 0, 0)
+        Height: =70
+        Size: =21
+        Text: =clicked.'Use Count'
+        Width: =80
+        X: =482
+        Y: =904
+        ZIndex: =26
+

@@ -1,0 +1,340 @@
+Scr_Announcements As screen:
+    Fill: =RGBA(251, 235, 206, 1)
+
+    Rectangle2_13 As rectangle:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =126
+        Width: =640
+        Y: =1010
+        ZIndex: =1
+
+    "'appname_Rider visitorship_2' As label":
+        Align: =Align.Center
+        Color: =RGBA(251, 235, 206, 1)
+        Fill: =RGBA(0, 52, 0, 1)
+        Font: =Font.Georgia
+        Height: =110
+        Size: =35
+        Text: ="Announcements"
+        Width: =640
+        ZIndex: =2
+
+    Icon1_5 As icon.Add:
+        Color: =RGBA(251, 235, 206, 1)
+        Height: =47
+        Icon: =Icon.Add
+        OnSelect: =Navigate(Scr_AddAnnouncements)
+        Width: =47
+        X: =558
+        Y: =31
+        ZIndex: =3
+
+    GalleryFilters As gallery.galleryHorizontal:
+        AccessibleLabel: ="Request filters"
+        BorderColor: =RGBA(101, 128, 187, 1)
+        DisabledBorderColor: =GalleryFilters.BorderColor
+        DisabledFill: =GalleryFilters.Fill
+        Height: =81
+        HoverBorderColor: =GalleryFilters.BorderColor
+        HoverFill: =GalleryFilters.Fill
+        Items: |-
+            =Table({Filter: "All"}, {Filter: "General"}, {Filter: "First Aid"}, {Filter: "Lost and Found"}, {Filter: "FAQ"})
+        LoadingSpinnerColor: =GalleryFilters.BorderColor
+        PressedBorderColor: =GalleryFilters.BorderColor
+        PressedFill: =GalleryFilters.Fill
+        ShowScrollbar: =false
+        TemplateSize: =140
+        Width: =614
+        X: =26
+        Y: =120
+        ZIndex: =5
+
+        FilterButton As button:
+            BorderColor: =RGBA(10, 106, 204, 1)
+            BorderThickness: =If(_requestTypeFilter=ThisItem.Filter,0,1)
+            Color: =If(_requestTypeFilter=ThisItem.Filter,RGBA(255, 255, 255, 1),RGBA(10, 106, 204, 1))
+            DisabledBorderColor: =ColorFade(FilterButton.BorderColor, 70%)
+            DisabledColor: =ColorFade(RGBA(47, 41, 43, 1), 70%)
+            DisabledFill: =ColorFade(RGBA(159, 167, 165, 1), 50%)
+            Fill: =If(_requestTypeFilter=ThisItem.Filter,RGBA(0, 71, 144, 1),RGBA(255, 255, 255, 1))
+            FocusedBorderColor: =FilterButton.BorderColor
+            Font: =Font.Lato
+            FontWeight: =FontWeight.Bold
+            Height: =49
+            HoverBorderColor: =ColorFade(FilterButton.BorderColor, 20%)
+            HoverColor: =FilterButton.Color
+            HoverFill: =ColorFade(FilterButton.Fill, 20%)
+            OnSelect: =Set(_requestTypeFilter, ThisItem.Filter)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =FilterButton.Fill
+            PressedColor: =FilterButton.Fill
+            PressedFill: =FilterButton.Color
+            RadiusBottomLeft: =25
+            RadiusBottomRight: =25
+            RadiusTopLeft: =25
+            RadiusTopRight: =25
+            Size: =14
+            Text: =ThisItem.Filter
+            Width: =140
+            ZIndex: =1
+
+    Icon3_1 As icon.HorizontalLine:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        Fill: =RGBA(0, 0, 0, 1)
+        Height: =3
+        Icon: =Icon.HorizontalLine
+        Width: =640
+        Y: =201
+        ZIndex: =7
+
+    Icon1_18 As icon.Home:
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =56
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Scr_Dashboard,ScreenTransition.Fade)
+        Width: =79
+        X: =16
+        Y: =1028
+        ZIndex: =8
+
+    Image1_16 As image:
+        Height: =52
+        Image: ='lost-and-found'
+        OnSelect: =Navigate('Scr_Lost&FoundGallery')
+        Width: =68
+        X: =117
+        Y: =1032
+        ZIndex: =9
+
+    Image2_13 As image:
+        Height: =52
+        Image: ='first-aid-kit'
+        OnSelect: =Navigate(Scr_Inventory)
+        Width: =68
+        X: =219
+        Y: =1032
+        ZIndex: =10
+
+    Image3_15 As image:
+        Height: =77
+        Image: =boat
+        OnSelect: =Navigate(Scr_RiderVisitorship)
+        Width: =82
+        X: =438
+        Y: =1022
+        ZIndex: =11
+
+    Image4_13 As image:
+        Height: =60
+        Image: =question
+        OnSelect: =Navigate(Scr_FAQ)
+        Width: =85
+        X: =539
+        Y: =1028
+        ZIndex: =12
+
+    Image5_17 As image:
+        Height: =63
+        Image: =human
+        OnSelect: =Navigate(Scr_StaffAuditGallery)
+        Width: =86
+        X: =319
+        Y: =1021
+        ZIndex: =13
+
+    Label1_80 As label:
+        Font: =Font.Georgia
+        Size: =12
+        Text: ="Home"
+        Width: =59
+        X: =26
+        Y: =1084
+        ZIndex: =14
+
+    Label1_81 As label:
+        Font: =Font.Georgia
+        Size: =12
+        Text: ="Lost & Found"
+        Width: =62
+        X: =120
+        Y: =1088
+        ZIndex: =15
+
+    Label1_82 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Size: =12
+        Text: ="First-Aid & AED"
+        Width: =78
+        X: =214
+        Y: =1088
+        ZIndex: =16
+
+    Label1_83 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =52
+        Size: =12
+        Text: ="Part-time Management"
+        Width: =115
+        X: =304
+        Y: =1084
+        ZIndex: =17
+
+    Label1_84 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =52
+        Size: =12
+        Text: ="Ride Visitors"
+        Width: =99
+        X: =429
+        Y: =1082
+        ZIndex: =18
+
+    Label1_85 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =48
+        Size: =12
+        Text: ="FAQs"
+        Width: =71
+        X: =546
+        Y: =1084
+        ZIndex: =19
+
+    btn_addnewride_cancel_5 As icon.Cancel:
+        AccessibleLabel: =Self.Tooltip
+        Height: =88
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate(Scr_Dashboard,ScreenTransition.Fade)
+        PaddingBottom: =22
+        PaddingLeft: =22
+        PaddingRight: =22
+        PaddingTop: =22
+        TabIndex: =0
+        Tooltip: ="Cancel item"
+        Width: =77
+        X: =11
+        Y: =11
+        ZIndex: =20
+
+    "Gallery1 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        DelayItemLoading: =true
+        Fill: =RGBA(183, 204, 145, 0)
+        Height: =806
+        Items: |
+            =Sort(
+                If(_requestTypeFilter="All", Filter(Announcements, Active=true), Filter(Announcements, Category.Value=_requestTypeFilter && Active=true)),
+            Created,
+            SortOrder.Descending)
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        OnSelect: |-
+            =Set(ItemSelected, ThisItem);
+            Navigate(Scr_ViewAnnouncement,ScreenTransition.Fade);
+        TemplatePadding: =0
+        TemplateSize: =174
+        Y: =204
+        ZIndex: =21
+
+        Image1_2 As image:
+            Height: =67
+            Image: |
+                =If(ThisItem.Category.Value="First Aid",
+                 'first-aid-kit',
+                  If(ThisItem.Category.Value="FAQ",
+                   question,
+                   If(ThisItem.Category.Value="Lost and Found",
+                   'lost-and-found',
+                    If(IsBlank(ThisItem.'User email'),
+                    HD_transparent_picture,
+                    If(Office365Users.UserPhotoMetadata(ThisItem.'User email').HasPhoto,Office365Users.UserPhotoV2(ThisItem.'User email'), 'blank-profile-picture-973460_1280')))))
+            OnSelect: =Select(Parent)
+            Width: =67
+            X: =21
+            Y: =10
+            ZIndex: =1
+
+        Title1 As label:
+            Height: =30
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =18
+            Text: |-
+                =If(IsBlank(ThisItem.'User email'),"",
+                Office365Users.UserProfile(ThisItem.'User email').DisplayName & ":")
+            VerticalAlign: =VerticalAlign.Top
+            Width: =416
+            X: =112
+            Y: =61
+            ZIndex: =2
+
+        Subtitle1 As label:
+            Height: =64
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =16
+            Text: =ThisItem.Title
+            VerticalAlign: =VerticalAlign.Top
+            Width: =416
+            X: =Title1.X
+            Y: =95
+            ZIndex: =3
+
+        NextArrow1 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Height: =60
+            Icon: =Icon.ChevronRight
+            OnSelect: =Select(Parent)
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="View item details"
+            Width: =60
+            X: =Parent.TemplateWidth - Self.Width - 5
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =4
+
+        Separator1_1 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =5
+
+        Label3_4 As label:
+            Align: =Align.Center
+            BorderThickness: =2
+            Fill: =If(ThisItem.Category.Value="General", RGBA(204, 231, 246, 1), If(ThisItem.Category.Value="First Aid", RGBA(251, 188, 159, 1), If(ThisItem.Category.Value="FAQ", RGBA(255, 255, 59, 1), RGBA(209, 232, 178, 1))))
+            OnSelect: =Select(Parent)
+            Size: =14
+            Text: =ThisItem.Category.Value
+            Visible: =If(IsBlank(ThisItem.Category.Value), false, true)
+            Width: =117
+            X: =112
+            Y: =10
+            ZIndex: =6
+
+        Label1_12 As label:
+            Height: =47
+            OnSelect: =Select(Parent)
+            Size: =16
+            Text: =ThisItem.Created
+            Width: =270
+            X: =237
+            Y: =10
+            ZIndex: =7
+

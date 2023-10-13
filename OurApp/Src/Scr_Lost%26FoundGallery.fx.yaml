@@ -1,0 +1,404 @@
+"'Scr_Lost&FoundGallery' As screen":
+    Fill: =RGBA(251, 235, 206, 1)
+
+    Rectangle2_16 As rectangle:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =126
+        Width: =640
+        Y: =1010
+        ZIndex: =1
+
+    btn_addnewride_cancel_8 As icon.Cancel:
+        AccessibleLabel: =Self.Tooltip
+        Height: =88
+        Icon: =Icon.BackArrow
+        OnSelect: =Back()
+        PaddingBottom: =22
+        PaddingLeft: =22
+        PaddingRight: =22
+        PaddingTop: =22
+        TabIndex: =0
+        Tooltip: ="Cancel item"
+        Width: =77
+        X: =40
+        Y: =40
+        ZIndex: =2
+
+    Icon3 As icon.Filter:
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Filter
+        OnSelect: =Navigate('Scr_Filter_Lost&FoundGallery',ScreenTransition.Fade)
+        X: =575
+        Y: =52
+        ZIndex: =3
+
+    "Gallery2 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        DelayItemLoading: =true
+        Height: =787
+        Items: |-
+            =Sort(Filter('Found List', 'Matched to lost item?'<>true), 'Date and Time Found', SortOrder.Descending)
+            //this filters the 'Found List' so only items that are not claimed yet are shown
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplatePadding: =0
+        TemplateSize: =252
+        Y: =110
+        ZIndex: =4
+
+        Image3_2 As image:
+            Height: =128
+            Image: =ThisItem.Photo
+            OnSelect: =Select(Parent)
+            Width: =128
+            X: =16
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =1
+
+        Title2 As label:
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =25
+            Text: =ThisItem.'Item Name'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - Image3_2.Width - 104
+            X: =167
+            Y: =16
+            ZIndex: =2
+
+        "'Item Category subtitle' As label":
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =16
+            Text: |-
+                ="Item Category: " & ThisItem.'Item Category'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Title2.Width
+            X: =Title2.X
+            Y: =61
+            ZIndex: =3
+
+        Separator3 As rectangle:
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =5
+
+        "'Date & Time subtitle' As label":
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =16
+            Text: |-
+                ="Date & Time found: " & ThisItem.'Date and Time Found'
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Title2.Width
+            X: =167
+            Y: =175
+            ZIndex: =7
+
+        "'brand subtitle' As label":
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =16
+            Text: |-
+                ="Brand: " & ThisItem.Brand
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Title2.Width
+            X: =167
+            Y: =90
+            ZIndex: =8
+
+        "'colour subtitle' As label":
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =16
+            Text: |-
+                ="Colour: " & ThisItem.Colour
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Title2.Width
+            X: =167
+            Y: =119
+            ZIndex: =9
+
+        "'brand subtitle_4' As label":
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =16
+            Text: |-
+                ="Location found: " & ThisItem.'Location Found'.Value
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Title2.Width
+            X: =167
+            Y: =149
+            ZIndex: =10
+
+        Icon7_1 As icon.Check:
+            Icon: =Icon.Check
+            OnSelect: |-
+                =Set(nexBrand, ThisItem.Brand);
+                Set(nexColour, ThisItem.Colour);
+                
+                Navigate(Scr_nextScreen, ScreenTransition.Fade)
+            X: =532
+            Y: =89
+            ZIndex: =11
+
+        Label9_1 As label:
+            FontWeight: =FontWeight.Semibold
+            Height: =75
+            OnSelect: =Select(Parent)
+            Size: =14
+            Text: ="See similar lost items?"
+            Width: =112
+            X: =508
+            Y: =37
+            ZIndex: =12
+
+        "'colour subtitle_3' As label":
+            Height: =24
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =16
+            Text: |-
+                ="Item ID: " & ThisItem.ID
+            VerticalAlign: =VerticalAlign.Top
+            Width: =314
+            X: =167
+            Y: =202
+            ZIndex: =13
+
+    Label5_1 As label:
+        Align: =Align.Center
+        Color: =RGBA(251, 235, 206, 1)
+        Fill: =RGBA(0, 52, 0, 1)
+        Font: =Font.Georgia
+        Height: =110
+        Size: =35
+        Text: ="Unclaimed Items"
+        Width: =640
+        ZIndex: =5
+
+    "'I found an item_3' As button":
+        Fill: =RGBA(0, 52, 0, 1)
+        Height: =66
+        OnSelect: =Navigate(Scr_FoundForm,ScreenTransition.Fade)
+        Size: =14
+        Text: ="I found an item"
+        Width: =130
+        X: =19
+        Y: =930
+        ZIndex: =6
+
+    "'Report a lost item_1' As button":
+        Fill: =RGBA(0, 52, 0, 1)
+        Height: =66
+        OnSelect: =Navigate('lost item form',ScreenTransition.Fade)
+        Size: =14
+        Text: ="Report a lost item"
+        Width: =130
+        X: =183
+        Y: =930
+        ZIndex: =7
+
+    "'Signature to verify claimed item_1' As button":
+        Fill: =RGBA(0, 52, 0, 1)
+        Height: =66
+        OnSelect: =Navigate(Scr_SignatureScreen, ScreenTransition.Fade)
+        Size: =14
+        Text: ="Signature to verify claimed item"
+        Width: =130
+        X: =333
+        Y: =932
+        ZIndex: =8
+
+    "'Lost Items gallery' As button":
+        Fill: =RGBA(0, 52, 0, 1)
+        Height: =66
+        OnSelect: =Navigate(Scr_LostGallery, ScreenTransition.Fade)
+        Size: =14
+        Text: ="Lost items"
+        Width: =130
+        X: =496
+        Y: =932
+        ZIndex: =9
+
+    Icon1_21 As icon.Home:
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =56
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Scr_Dashboard,ScreenTransition.Fade)
+        Width: =79
+        X: =16
+        Y: =1028
+        ZIndex: =10
+
+    Button5_9 As button:
+        BorderThickness: =0
+        Fill: =RGBA(251, 235, 206, 1)
+        Height: =136
+        HoverFill: =
+        Size: =24
+        Text: =""
+        Width: =112
+        X: =95
+        Y: =1000
+        ZIndex: =11
+
+    Image1_19 As image:
+        Height: =52
+        Image: ='lost-and-found'
+        OnSelect: =Navigate('Scr_Lost&FoundGallery')
+        Width: =68
+        X: =117
+        Y: =1032
+        ZIndex: =12
+
+    Image2_16 As image:
+        Height: =52
+        Image: ='first-aid-kit'
+        OnSelect: =Navigate(Scr_Inventory)
+        Width: =68
+        X: =219
+        Y: =1032
+        ZIndex: =13
+
+    Image3_18 As image:
+        Height: =77
+        Image: =boat
+        OnSelect: =Navigate(Scr_RiderVisitorship)
+        Width: =82
+        X: =438
+        Y: =1022
+        ZIndex: =14
+
+    Image4_16 As image:
+        Height: =60
+        Image: =question
+        OnSelect: =Navigate(Scr_FAQ)
+        Width: =85
+        X: =539
+        Y: =1028
+        ZIndex: =15
+
+    Image5_20 As image:
+        Height: =63
+        Image: =human
+        OnSelect: =Navigate(Scr_StaffLookupGallery)
+        Width: =86
+        X: =319
+        Y: =1021
+        ZIndex: =16
+
+    Label1_98 As label:
+        Font: =Font.Georgia
+        Size: =12
+        Text: ="Home"
+        Width: =59
+        X: =26
+        Y: =1084
+        ZIndex: =17
+
+    Label1_99 As label:
+        Font: =Font.Georgia
+        Size: =12
+        Text: ="Lost & Found"
+        Width: =62
+        X: =120
+        Y: =1088
+        ZIndex: =18
+
+    Label1_100 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Size: =12
+        Text: ="First-Aid & AED"
+        Width: =78
+        X: =214
+        Y: =1088
+        ZIndex: =19
+
+    Label1_101 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =52
+        Size: =12
+        Text: ="Part-time Management"
+        Width: =115
+        X: =304
+        Y: =1084
+        ZIndex: =20
+
+    Label1_102 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =52
+        Size: =12
+        Text: ="Ride Visitors"
+        Width: =99
+        X: =429
+        Y: =1082
+        ZIndex: =21
+
+    Label1_103 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =48
+        Size: =12
+        Text: ="FAQs"
+        Width: =71
+        X: =546
+        Y: =1084
+        ZIndex: =22
+
+    btn_addnewride_cancel_36 As icon.Cancel:
+        AccessibleLabel: =Self.Tooltip
+        Height: =88
+        Icon: =Icon.BackArrow
+        OnSelect: =Back()
+        PaddingBottom: =22
+        PaddingLeft: =22
+        PaddingRight: =22
+        PaddingTop: =22
+        TabIndex: =0
+        Tooltip: ="Cancel item"
+        Width: =77
+        X: =13
+        Y: =13
+        ZIndex: =23
+
+    "'filter icon_1' As icon.Filter":
+        Color: =RGBA(255, 255, 255, 1)
+        Icon: =Icon.Filter
+        OnSelect: =Navigate('Scr_Filter_Lost&FoundGallery',ScreenTransition.Fade)
+        Width: =86
+        X: =538
+        Y: =23
+        ZIndex: =24
+

@@ -1,0 +1,23 @@
+Scr_ItemTopUp As screen:
+
+    Image9 As image:
+        Height: =1136
+        Image: ='Item top-up'
+        ImagePosition: =ImagePosition.Fill
+        Width: =640
+        ZIndex: =1
+
+    btn_Back_1 As button:
+        Color: =RGBA(251, 235, 206, 1)
+        Fill: =RGBA(0, 52, 0, 1)
+        Font: =Font.Georgia
+        Height: =70
+        HoverFill: =ColorFade(RGBA(0, 52, 0, 1), -20%)
+        OnSelect: =Navigate(Scr_Inventory,ScreenTransition.Fade)
+        Size: =24
+        Text: ="Back"
+        Width: =280
+        X: =180
+        Y: =769
+        ZIndex: =2
+

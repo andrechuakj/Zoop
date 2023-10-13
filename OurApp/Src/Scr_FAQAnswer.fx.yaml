@@ -1,0 +1,212 @@
+Scr_FAQAnswer As screen:
+    Fill: =RGBA(251, 235, 206, 1)
+
+    Rectangle2_8 As rectangle:
+        Fill: =RGBA(255, 255, 255, 1)
+        Height: =126
+        Width: =640
+        Y: =1010
+        ZIndex: =1
+
+    Button5_6 As button:
+        BorderThickness: =0
+        Fill: =RGBA(251, 235, 206, 1)
+        Height: =136
+        HoverFill: =
+        Size: =24
+        Text: =""
+        Width: =112
+        X: =528
+        Y: =1000
+        ZIndex: =2
+
+    RectQuickActionBar2 As rectangle:
+        Fill: =RGBA(0, 52, 0, 1)
+        Height: =110
+        Width: =Parent.Width
+        ZIndex: =3
+
+    appname_question As label:
+        Align: =Align.Center
+        Color: =RGBA(251, 235, 206, 1)
+        Font: =Font.Georgia
+        Height: =110
+        Size: =25
+        Text: =SelectedFAQItems.Question
+        Width: =495
+        X: =114
+        ZIndex: =4
+
+    Icon1_13 As icon.Home:
+        Color: =RGBA(0, 0, 0, 1)
+        Height: =56
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Scr_Dashboard,ScreenTransition.Fade)
+        Width: =79
+        X: =16
+        Y: =1028
+        ZIndex: =5
+
+    Image1_11 As image:
+        Height: =52
+        Image: ='lost-and-found'
+        OnSelect: =Navigate('Scr_Lost&FoundGallery')
+        Width: =68
+        X: =117
+        Y: =1032
+        ZIndex: =6
+
+    Image2_8 As image:
+        Height: =52
+        Image: ='first-aid-kit'
+        OnSelect: =Navigate(Scr_Inventory)
+        Width: =68
+        X: =219
+        Y: =1032
+        ZIndex: =7
+
+    Image3_10 As image:
+        Height: =77
+        Image: =boat
+        OnSelect: =Navigate(Scr_RiderVisitorship)
+        Width: =82
+        X: =438
+        Y: =1022
+        ZIndex: =8
+
+    Image4_8 As image:
+        Height: =60
+        Image: =question
+        OnSelect: =Navigate(Scr_FAQ)
+        Width: =85
+        X: =539
+        Y: =1028
+        ZIndex: =9
+
+    Image5_12 As image:
+        Height: =63
+        Image: =human
+        OnSelect: =Navigate(Scr_StaffLookupGallery)
+        Width: =86
+        X: =319
+        Y: =1021
+        ZIndex: =10
+
+    Label1_50 As label:
+        Font: =Font.Georgia
+        Size: =12
+        Text: ="Home"
+        Width: =59
+        X: =26
+        Y: =1084
+        ZIndex: =11
+
+    Label1_51 As label:
+        Font: =Font.Georgia
+        Size: =12
+        Text: ="Lost & Found"
+        Width: =62
+        X: =120
+        Y: =1088
+        ZIndex: =12
+
+    Label1_52 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Size: =12
+        Text: ="First-Aid & AED"
+        Width: =78
+        X: =214
+        Y: =1088
+        ZIndex: =13
+
+    Label1_53 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =52
+        Size: =12
+        Text: ="Part-time Management"
+        Width: =115
+        X: =304
+        Y: =1084
+        ZIndex: =14
+
+    Label1_54 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =52
+        Size: =12
+        Text: ="Ride Visitors"
+        Width: =99
+        X: =429
+        Y: =1082
+        ZIndex: =15
+
+    Label1_55 As label:
+        Align: =Align.Center
+        Font: =Font.Georgia
+        Height: =48
+        Size: =12
+        Text: ="FAQs"
+        Width: =71
+        X: =546
+        Y: =1084
+        ZIndex: =16
+
+    btn_addnewride_cancel_26 As icon.Cancel:
+        AccessibleLabel: =Self.Tooltip
+        Height: =88
+        Icon: =Icon.BackArrow
+        OnSelect: =Back()
+        PaddingBottom: =22
+        PaddingLeft: =22
+        PaddingRight: =22
+        PaddingTop: =22
+        TabIndex: =0
+        Tooltip: ="Cancel item"
+        Width: =77
+        X: =11
+        Y: =11
+        ZIndex: =17
+
+    shape_background As label:
+        Color: =RGBA(0, 52, 0, 1)
+        Fill: =RGBA(237, 237, 237, 1)
+        FocusedBorderThickness: =false
+        Font: =Font.Georgia
+        Height: =670
+        LineHeight: =1.5
+        Overflow: =Overflow.Scroll
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        TabIndex: =0
+        Text: |
+            =
+        VerticalAlign: =VerticalAlign.Top
+        Width: =484
+        X: =78
+        Y: =219
+        ZIndex: =18
+
+    "'text_Faq answer' As label":
+        Color: =RGBA(0, 52, 0, 1)
+        Fill: =RGBA(237, 237, 237, 1)
+        FocusedBorderThickness: =false
+        Font: =Font.Georgia
+        Height: =610
+        LineHeight: =1.5
+        Overflow: =Overflow.Scroll
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        TabIndex: =0
+        Text: =SelectedFAQItems.Answer
+        VerticalAlign: =VerticalAlign.Top
+        Width: =423
+        X: =114
+        Y: =249
+        ZIndex: =19
+

@@ -1,0 +1,17 @@
+Scr_announcementAdded As screen:
+    BackgroundImage: ='announcement published'
+
+    btn_RequestAccess_3 As button:
+        Color: =RGBA(251, 235, 206, 1)
+        Fill: =RGBA(0, 52, 0, 1)
+        Font: =Font.Georgia
+        Height: =70
+        HoverFill: =ColorFade(RGBA(0, 52, 0, 1), -20%)
+        OnSelect: =Navigate(Scr_Announcements,ScreenTransition.Fade);
+        Size: =24
+        Text: ="Back"
+        Width: =280
+        X: =176
+        Y: =752
+        ZIndex: =1
+
